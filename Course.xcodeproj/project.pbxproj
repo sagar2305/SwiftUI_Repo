@@ -15,6 +15,14 @@
 		175E4B112390F870000B3786 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175E4B0F2390F870000B3786 /* LaunchScreen.storyboard */; };
 		175E4B1C2390F870000B3786 /* CourseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E4B1B2390F870000B3786 /* CourseTests.swift */; };
 		175E4B272390F870000B3786 /* CourseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E4B262390F870000B3786 /* CourseUITests.swift */; };
+		175E4B352394DD7B000B3786 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E4B342394DD7B000B3786 /* Home.swift */; };
+		17D817AB2394F93C0083B82E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D817AA2394F93C0083B82E /* BlurView.swift */; };
+		17D817AD2394FDCD0083B82E /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D817AC2394FDCD0083B82E /* UpdateList.swift */; };
+		17D817AF239500FE0083B82E /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D817AE239500FE0083B82E /* UpdateDetail.swift */; };
+		17D817B123950DD50083B82E /* UpdateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D817B023950DD50083B82E /* UpdateStore.swift */; };
+		17D817B3239513AD0083B82E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D817B2239513AD0083B82E /* TabBar.swift */; };
+		17D817B52395397D0083B82E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D817B42395397D0083B82E /* Settings.swift */; };
+		17F099842394ED0D00C04082 /* HomeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F099832394ED0D00C04082 /* HomeList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,14 @@
 		175E4B222390F870000B3786 /* CourseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		175E4B262390F870000B3786 /* CourseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseUITests.swift; sourceTree = "<group>"; };
 		175E4B282390F870000B3786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		175E4B342394DD7B000B3786 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		17D817AA2394F93C0083B82E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		17D817AC2394FDCD0083B82E /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
+		17D817AE239500FE0083B82E /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
+		17D817B023950DD50083B82E /* UpdateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStore.swift; sourceTree = "<group>"; };
+		17D817B2239513AD0083B82E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		17D817B42395397D0083B82E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		17F099832394ED0D00C04082 /* HomeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +118,14 @@
 				175E4B042390F86E000B3786 /* AppDelegate.swift */,
 				175E4B062390F86E000B3786 /* SceneDelegate.swift */,
 				175E4B082390F86E000B3786 /* ContentView.swift */,
+				175E4B342394DD7B000B3786 /* Home.swift */,
+				17F099832394ED0D00C04082 /* HomeList.swift */,
+				17D817AA2394F93C0083B82E /* BlurView.swift */,
+				17D817AC2394FDCD0083B82E /* UpdateList.swift */,
+				17D817AE239500FE0083B82E /* UpdateDetail.swift */,
+				17D817B023950DD50083B82E /* UpdateStore.swift */,
+				17D817B2239513AD0083B82E /* TabBar.swift */,
+				17D817B42395397D0083B82E /* Settings.swift */,
 				175E4B0A2390F870000B3786 /* Assets.xcassets */,
 				175E4B0F2390F870000B3786 /* LaunchScreen.storyboard */,
 				175E4B122390F870000B3786 /* Info.plist */,
@@ -268,8 +292,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				175E4B052390F86E000B3786 /* AppDelegate.swift in Sources */,
+				17D817B123950DD50083B82E /* UpdateStore.swift in Sources */,
+				17D817AD2394FDCD0083B82E /* UpdateList.swift in Sources */,
+				17F099842394ED0D00C04082 /* HomeList.swift in Sources */,
+				17D817AF239500FE0083B82E /* UpdateDetail.swift in Sources */,
 				175E4B072390F86E000B3786 /* SceneDelegate.swift in Sources */,
+				175E4B352394DD7B000B3786 /* Home.swift in Sources */,
 				175E4B092390F86E000B3786 /* ContentView.swift in Sources */,
+				17D817AB2394F93C0083B82E /* BlurView.swift in Sources */,
+				17D817B52395397D0083B82E /* Settings.swift in Sources */,
+				17D817B3239513AD0083B82E /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
