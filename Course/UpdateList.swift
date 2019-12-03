@@ -76,9 +76,8 @@ struct UpdateList: View {
     }
     
     func move(from source: IndexSet, to destination: Int) {
-        store.updates.swapAt(source.first!, destination)
+        store.updates.move(fromOffsets: source, toOffset: destination)
     }
-
 
 }
 

@@ -19,48 +19,55 @@ struct Settings: View {
 
     
     var body: some View {
-        NavigationView {
-            Form {
-                Toggle(isOn: $receive) {
-                    Text("Receive notifications")
-                }
-                
-                Stepper(value: $number, in: 1...10) {
-                    Text("\(number) Notification\(number > 1 ? "s": "") per week")
+        ZStack {
+
+            BlurView(style: .systemMaterial)
+
+            NavigationView {
+                Form {
+                    Toggle(isOn: $receive) {
+                        Text("Receive notifications")
+                    }
                     
-                }
-                
-                Picker(selection: $selection, label: Text("Favorite course")) {
-                    Text("SwiftUI").tag(1)
-                    Text("React").tag(2)
-                }
+                    Stepper(value: $number, in: 1...10) {
+                        Text("\(number) Notification\(number > 1 ? "s": "") per week")
+                        
+                    }
+                    
+                    Picker(selection: $selection, label: Text("Favorite course")) {
+                        Text("SwiftUI").tag(1)
+                        Text("React").tag(2)
+                    }
 
-                DatePicker(selection: $date) {
-                    Text("Date")
-                }
-                
-                Section(header: Text("Email")) {
-                    TextField("Your email", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                }
+                    DatePicker(selection: $date) {
+                        Text("Date")
+                    }
+                    
+                    Section(header: Text("Email")) {
+                        TextField("Your email", text: $email)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
 
-                Button(action: { self.submit.toggle() }) {
-                        Text("Submit")
+                    Button(action: { self.submit.toggle() }) {
+                            Text("Submit")
+                    }
+
+                    .alert(isPresented: $submit) { () -> Alert in
+                        Alert(
+                            title: Text("Thanks!"),
+                            message: Text("\(number) email per month\n Favorite: \(selection)\n Date: \(date)")
+                        )
+                    }
+
+
                 }
-
-                .alert(isPresented: $submit) { () -> Alert in
-                    Alert(
-                        title: Text("Thanks!"),
-                        message: Text("\(number) email per month\n Favorite: \(selection)\n Date: \(date)")
-                    )
-                }
-
-
+            
+            .navigationBarTitle(Text("Settings"))
             }
-        
-        .navigationBarTitle(Text("Settings"))
+            .padding(.top, 78)
         }
-        .padding(.top, 78)
+        .cornerRadius(30)
+
     }
 }
 

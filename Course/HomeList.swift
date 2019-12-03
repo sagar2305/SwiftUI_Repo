@@ -15,27 +15,27 @@ struct HomeList: View {
     
     let coursesData = [
         CourseData(title: "Build an app with SwiftUI",
-               image: "Illustration1",
-               color: Color("background3"),
-               shadowColor: Color("backgroundShadow3")),
+                   image: "Illustration1",
+                   color: Color("background3"),
+                   shadowColor: Color("backgroundShadow3")),
         CourseData(title: "Design and animate your UI",
-               image: "Illustration2",
-               color: Color("background4"),
-               shadowColor: Color("backgroundShadow4")),
+                   image: "Illustration2",
+                   color: Color("background4"),
+                   shadowColor: Color("backgroundShadow4")),
         CourseData(title: "Swift UI Advanced",
-               image: "Illustration3",
-               color: Color("background7"),
-               shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+                   image: "Illustration3",
+                   color: Color("background7"),
+                   shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
         CourseData(title: "Framer Playground",
-               image: "Illustration4",
-               color: Color("background8"),
-               shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+                   image: "Illustration4",
+                   color: Color("background8"),
+                   shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
         CourseData(title: "Flutter for Designers",
-               image: "Illustration5",
-               color: Color("background9"),
-               shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
+                   image: "Illustration5",
+                   color: Color("background9"),
+                   shadowColor: Color(hue: 0.677, saturation: 0.701, brightness: 0.788, opacity: 0.5)),
     ]
-
+    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -50,19 +50,17 @@ struct HomeList: View {
                 Spacer()
             }
             .padding(.leading, 70)
-            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack (spacing: 30) {
                     ForEach(coursesData) { item in
                         GeometryReader { geometry in
-                            CourseView(course: item)
+                            CourseView(course: item, showContent: self.$showContent)
                                 .sheet(isPresented: self.$showContent) { ContentView() }
                                 .rotation3DEffect(Angle(degrees:
                                     Double(geometry.frame(in: .global).minX - 40) / -20
                                 ), axis: (x: 0, y: 10.0, z: 0))
-                            
                         }
-                        .frame(width: 246, height: 150)
+                        .frame(width: 246, height: 360)
                     }
                 }
                 .padding(.leading, 40)
@@ -70,7 +68,10 @@ struct HomeList: View {
                 .padding(.top, 30)
                 Spacer()
             }
+            .frame(height: 400)
+            Spacer()
         }
+        .frame(minHeight: 0, maxHeight: .infinity)
         .padding(.top, 78)
     }
 }
@@ -83,6 +84,8 @@ struct HomeList_Previews: PreviewProvider {
 
 struct CourseView: View {
     var course: CourseData
+    @Binding var showContent: Bool
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(course.title)
@@ -91,20 +94,23 @@ struct CourseView: View {
                 .foregroundColor(.white)
                 .padding(30)
                 .lineLimit(4)
-                .frame(width: 150)
+                .frame(minWidth: 0, maxWidth: .infinity)
             Spacer()
             Image(course.image)
-            .resizable()
-            .renderingMode(.original)
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 246, height: 150)
-            .padding(.bottom, 30)
-
+                .resizable()
+                .renderingMode(.original)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 246, height: 150)
+                .padding(.bottom, 30)
+            
         }
         .background(course.color)
         .cornerRadius(30)
         .frame(width: 246, height: 360)
         .shadow(color: course.shadowColor, radius: 20, x: 0, y: 20)
+        .onTapGesture {
+            self.showContent.toggle()
+        }
     }
 }
 

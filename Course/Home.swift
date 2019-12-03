@@ -43,6 +43,7 @@ struct Home: View {
             Settings()
                 .animation(.default)
                 .offset(y: showSettings ? 40 : UIScreen.main.bounds.height)
+                .cornerRadius(30)
         }
     }
 }
@@ -50,6 +51,9 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
+        .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+        .previewDisplayName("iPhone 11")
+
     }
 }
 
@@ -153,7 +157,7 @@ struct MenuButton: View {
 struct MenuRight: View {
     @Binding var show: Bool
     @Binding var showSettings: Bool
-
+    
     var body: some View {
         VStack {
             HStack(spacing: 12) {
@@ -161,11 +165,15 @@ struct MenuRight: View {
                 
                 Button(action: {
                     self.showSettings.toggle()
+                    self.show = false
+                    
                 }) {
                     CircleButton(icon: "person.crop.circle")
                 }
                 
-                Button(action: { self.show.toggle() }) {
+                Button(action: {                     self.showSettings = false
+                    self.show.toggle()
+                }) {
                     CircleButton(icon: "bell")
                 }
             }
